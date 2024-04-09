@@ -8,7 +8,7 @@ model = YOLO("yolov8n.pt")
 cap = cv2.VideoCapture("assets/video.mp4")
 
 # Camera Capture
-# cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)
 
 
 assert cap.isOpened(), "Error reading video file"
@@ -29,8 +29,8 @@ video_writer = cv2.VideoWriter(
 counter = object_counter.ObjectCounter()
 counter.set_args(
     view_img=True,
-    view_in_counts=False,
-    view_out_counts=False,
+    view_in_counts=True,
+    view_out_counts=True,
     reg_pts=line_points,
     classes_names=model.names,
     draw_tracks=True
